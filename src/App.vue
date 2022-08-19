@@ -1,32 +1,65 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <ObNavbar />
+    <keep-alive><router-view /></keep-alive>
+    <ObFooter />
   </div>
 </template>
+<script>
+import ObNavbar from './components/ObNavbar.vue';
+import ObFooter from './components/ObFooter.vue';
 
-<style>
+export default {
+  components: {
+    ObNavbar,
+    ObFooter,
+  },
+};
+</script>
+
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Forum, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000;
+  background: #fff;
+  letter-spacing: 0.07em;
 }
 
-nav {
-  padding: 30px;
+.custom-btn {
+  background: transparent;
+  font-size: 42px;
+  border-radius: 0;
+  border: 3px solid #fff;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  &:focus {
+    border: 3px solid #000;
+    color: #000;
+    background: #fff;
+    box-shadow: none;
+  }
+  &:hover {
+    border: 3px solid #000;
+    color: #000;
+    background: #fff;
+  }
+  &:active {
+    border: 3px solid #000;
+    color: #000;
+    background: #fff;
+  }
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.title {
+  color: #fff;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 </style>
